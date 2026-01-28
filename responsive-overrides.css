@@ -1,0 +1,81 @@
+
+/* === Responsive overrides to make the site work smoothly on all devices === */
+
+/* Smooth scrolling and better text rendering */
+html { scroll-behavior: smooth; }
+body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+/* Make all images scale within their containers */
+img { max-width: 100%; height: auto; display: block; }
+
+/* Fix certificate images that were overflowing with inline styles */
+.pricing-card img {
+  width: 100% !important;
+  position: static !important;
+  left: auto !important;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+/* Make the pricing grid adapt earlier on smaller screens */
+.pricing-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+  gap: 1.5rem !important;
+}
+
+/* Reduce excessive fixed heights on certain breakpoints */
+@media (max-width: 900px) {
+  .pricing-card { height: auto !important; padding-bottom: 2rem !important; }
+}
+
+/* Scale large hero and section titles more fluidly */
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 3rem) !important;
+}
+
+.hero-title {
+  font-size: clamp(2.25rem, 9vw, 4.5rem) !important;
+}
+.hero-subtitle {
+  font-size: clamp(1rem, 2.6vw, 1.25rem) !important;
+  padding: 0 1rem;
+}
+
+/* Contact links were fixed at 40px; make them fluid and wrap nicely */
+.contact .contact-form a {
+  font-size: clamp(1rem, 5vw, 2rem) !important;
+  line-height: 1.3;
+  word-break: break-word;
+  text-align: center;
+  display: block;
+}
+
+/* Navigation spacing on very small screens */
+@media (max-width: 420px) {
+  nav { padding: 0.75rem 1rem !important; }
+}
+
+/* Prevent any horizontal scrolling on small screens */
+body, .hero, .features, .pricing, .contact, .footer {
+  overflow-x: hidden;
+}
+
+/* Ensure cards and containers don't exceed viewport width */
+.feature-card, .pricing-card, .contact-form, .contact-form-wrapper, .features-container, .pricing-container, .contact-container, .footer-content {
+  max-width: 100%;
+}
+
+/* Slightly tighter padding on mobile for better fit */
+@media (max-width: 480px) {
+  .hero { padding: 120px 1rem 60px !important; }
+  .features, .pricing, .contact { padding: 60px 1rem !important; }
+  .footer { padding: 32px 1rem 24px !important; }
+}
+
+/* Improve touch targets in the mobile menu */
+.mobile-menu-nav a { padding: 1rem 1.5rem !important; }
+
+/* Make stats stack cleanly on narrow screens */
+@media (max-width: 500px) {
+  .stats-grid { grid-template-columns: 1fr !important; }
+}
